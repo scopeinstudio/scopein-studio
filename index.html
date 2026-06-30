@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScopeIN Studio</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial,sans-serif;
+      html{
+          scroll-behavior:smooth;
+        }
+
+        body{
+            background:linear-gradient(135deg,#090909,#0d1b2a,#1b263b);
+            color:white;
+        }
+
+        header{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:20px 60px;
+            background:rgba(0,0,0,.75);
+            backdrop-filter:blur(10px);
+            position:sticky;
+            top:0;
+            z-index:1000;
+        }
+
+  .logo{
+    font-size:32px;
+    font-weight:bold;
+    color:#00e5ff;
+    text-shadow:
+        0 0 10px #00e5ff,
+        0 0 20px #00e5ff,
+        0 0 40px #00e5ff;
+    animation:glow 2s infinite alternate;
+}
+
+        nav a{
+            color:white;
+            text-decoration:none;
+            margin-left:25px;
+            transition:.3s;
+        }
+
+        nav a:hover{
+            color:#00e5ff;
+        }
+
+        .hero{
+            height:90vh;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+        }
+
+        .hero h1{
+            font-size:70px;
+            color:#00e5ff;
+        }
+
+        .hero p{
+            font-size:24px;
+            margin:20px 0;
+        }
+
+        .btn{
+            padding:15px 35px;
+            background:#00e5ff;
+            color:black;
+            text-decoration:none;
+            border-radius:8px;
+            font-weight:bold;
+        }
+
+        .btn:hover{
+            background:white;
+}
+
+.games{
+    padding:80px 50px;
+    text-align:center;
+}
+
+.game-container{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+    margin-top:40px;
+}
+
+.game-card{
+    background:#1b263b;
+    width:300px;
+    padding:25px;
+    border-radius:15px;
+    transition:all .4s ease;
+    box-shadow:0 0 15px rgba(0,229,255,.15);
+}
+
+.game-card:hover{
+    transform:translateY(-12px) scale(1.03);
+    box-shadow:0 0 35px rgba(0,229,255,.8);
+}
+
+.game-card h3{
+    color:#00e5ff;
+    margin-bottom:15px;
+}
+
+.game-card p{
+    color:#d9d9d9;
+    margin-bottom:20px;
+}
+
+.game-card button{
+    background:#00e5ff;
+    color:black;
+    border:none;
+    padding:10px 20px;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.game-card button:hover{
+    background:white;
+}
+
+.game-card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+
+.about{
+    padding:80px 50px;
+    text-align:center;
+    background:#111827;
+}
+
+.about h2{
+    color:#00e5ff;
+    font-size:40px;
+    margin-bottom:20px;
+}
+
+.about p{
+    max-width:800px;
+    margin:auto;
+    font-size:18px;
+    line-height:1.8;
+    color:#c9d1d9;
+}
+
+  .vision{
+    padding:80px 50px;
+    background:#0d1324;
+    text-align:center;
+}
+
+.vision h2{
+    color:#00e5ff;
+    font-size:40px;
+    margin-bottom:20px;
+}
+
+.vision p{
+    max-width:850px;
+    margin:20px auto;
+    font-size:18px;
+    line-height:1.8;
+    color:#c9d1d9;
+} 
+
+.features{
+    padding:80px 50px;
+    text-align:center;
+    background:#111827;
+}
+
+.features h2{
+    color:#00e5ff;
+    font-size:40px;
+    margin-bottom:40px;
+}
+
+.feature-container{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.feature-card{
+    width:250px;
+    background:#1b263b;
+    padding:25px;
+    border-radius:15px;
+    transition:.3s;
+    box-shadow:0 0 15px rgba(0,229,255,.15);
+}
+
+.feature-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 25px rgba(0,229,255,.6);
+}
+
+.feature-card h3{
+    color:#00e5ff;
+    margin-bottom:15px;
+}
+
+.feature-card p{
+    color:#c9d1d9;
+    line-height:1.6;
+} 
+
+ .contact{
+    padding:80px 50px;
+    background:#111827;
+    text-align:center;
+}
+
+.contact h2{
+    color:#00e5ff;
+    font-size:45px;
+    margin-bottom:20px;
+}
+
+.contact p{
+    max-width:700px;
+    margin:15px auto;
+    color:#c9d1d9;
+    font-size:20px;
+    line-height:1.8;
+}
+
+.contact .btn{
+    display:inline-block;
+    margin-top:30px;
+} 
+
+@keyframes glow{
+    from{
+        text-shadow:
+            0 0 10px #00e5ff,
+            0 0 20px #00e5ff;
+    }
+
+    to{
+        text-shadow:
+            0 0 20px #00e5ff,
+            0 0 40px #00e5ff,
+            0 0 60px #00e5ff;
+    }
+}
+
+@media (max-width:768px){
+
+    header{
+        flex-direction:column;
+        gap:20px;
+        padding:20px;
+    }
+
+    nav{
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    nav a{
+        margin:10px;
+    }
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .hero p{
+        font-size:18px;
+    }
+
+    .game-container{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .game-card{
+        width:90%;
+    }
+
+    .features{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .feature-box{
+        width:90%;
+    }
+
+}
+
+.footer{
+    background:#050b18;
+    padding:60px 20px;
+    text-align:center;
+    width:100%;
+    box-sizing:border-box;
+}
+
+.footer h2{
+    color:#00e5ff;
+    font-size:32px;
+    margin-bottom:15px;
+}
+
+.footer p{
+    color:#c9d1d9;
+    margin:10px 0;
+}
+
+.footer-links{
+    margin:30px 0;
+}
+
+.footer-links a{
+    color:white;
+    text-decoration:none;
+    margin:0 15px;
+    transition:.3s;
+}
+
+.footer-links a:hover{
+    color:#00e5ff;
+}
+
+.copyright{
+    margin-top:30px;
+    font-size:14px;
+    color:#8b949e;
+}
+
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">ScopeIN Studio</div>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#games">Games</a>
+        <a href="#about">About</a>
+        <a href="#vision">Vision</a>
+        <a href="#features">Features</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Where Ideas Become Games</h1>
+
+    <p>
+        Building futuristic and anime-inspired gaming experiences for players around the world.
+    </p>
+
+    <a href="#" class="btn">Explore Games</a>
+</section>
+
+<section id="games" class="games">
+
+<h2>Featured Games</h2>
+
+<div class="game-container">
+
+<div class="game-card">
+<img src="images/shadow.jpg" alt="Shadow Rebirth">
+<h3>⚔️ Shadow Rebirth</h3>
+<p>An anime action RPG where legendary warriors fight against darkness.</p>
+<button>Coming Soon</button>
+</div>
+
+<div class="game-card">
+<img src="images/neon.jpg" alt="Neon Legends">
+<h3>🌌 Neon Legends</h3>
+<p>Explore a futuristic cyber world filled with powerful enemies.</p>
+<button>Coming Soon</button>
+</div>
+
+<div class="game-card">
+<img src="images/dragon.jpg" alt="Dragon Nexus">
+<h3>🐉 Dragon Nexus</h3>
+<p>Awaken ancient dragons and save humanity from destruction.</p>
+<button>Coming Soon</button>
+</div>
+
+</div>
+
+</section>
+
+<section id="about" class="about">
+    <h2>About ScopeIN Studio</h2>
+
+  <p>
+      ScopeIN Studio is an independent game development studio founded by
+      <strong>Kanishk Sharma</strong> and <strong>Sakshi Sharma</strong>.
+      We are dedicated to creating high-quality, anime-inspired games with
+      immersive storytelling, breathtaking visuals, and innovative gameplay.
+      Our goal is to build experiences that players will remember for years to come.
+  </p>
+    </section>
+
+<section id="vision" class="vision">
+    <h2>Our Vision</h2>
+
+    <p>
+        At <strong>ScopeIN Studio</strong>, our vision is to create unforgettable
+        gaming experiences that combine breathtaking visuals, immersive storytelling,
+        and innovative gameplay.
+    </p>
+
+    <p>
+        We believe games are more than entertainment—they are worlds where players
+        can explore, dream, and create memories. Our goal is to build high-quality,
+        anime-inspired adventures enjoyed by players around the world.
+    </p>
+</section>
+<section id="features" class="features">
+
+    <h2>Why Choose ScopeIN Studio?</h2>
+
+    <div class="feature-container">
+
+        <div class="feature-card">
+            <h3>🎮 Immersive Gameplay</h3>
+            <p>Exciting adventures with smooth and engaging gameplay.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>🌌 Futuristic Worlds</h3>
+            <p>Explore beautiful worlds inspired by anime and science fiction.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>🎨 Stunning Visuals</h3>
+            <p>High-quality graphics designed to bring every world to life.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>⚡ High Performance</h3>
+            <p>Optimized games that run smoothly on supported devices.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="contact" class="contact">
+    <h2>Contact Us</h2>
+
+    <p>ScopeIN Studio is currently under development.</p>
+
+    <p>Our official contact information and social media channels will be available soon.</p>
+
+    <a href="#" class="btn">Coming Soon</a>
+</section>
+
+ <footer class="footer">
+
+    <h2>ScopeIN Studio</h2>
+
+    <p>Creating futuristic and unforgettable gaming experiences.</p>
+
+    <div class="footer-links">
+        <a href="#">Home</a>
+        <a href="#games">Games</a>
+        <a href="#about">About</a>
+        <a href="#vision">Vision</a>
+        <a href="#features">Features</a>
+        <a href="#contact">Contact</a>
+
+    </div>
+
+    <p class="copyright">
+        © 2026 ScopeIN Studio. All Rights Reserved.
+    </p>
+
+</footer>
+
+</body>
+</html>
